@@ -1,6 +1,6 @@
 $pwd = Read-Host -AsSecureString "Initial password" 
 
-Import-Csv C:\Lab\users.csv | ForEach-Object { 
+Import-Csv C:$SScriptRoot\users.csv | ForEach-Object { 
   New-ADUser -Name "$($_.FirstName) $($_.LastName)" -GivenName $_.FirstName -Surname $_.LastName ` 
     -SamAccountName $_.Sam -UserPrincipalName "$($_.Sam)@blueharbor.internal" `
     -Department $_.Department -Title $_.Title `
